@@ -115,14 +115,14 @@ namespace GraphSearch
             }
             if (cur.Weight.HasValue)
             {
-                //open.Remove(cur);
+                open.Remove(cur);
                 /*if(cur.Count > newCount)
                 {
                     cur.backX = parentX;
                     cur.backY = parentY;
                 }*/
             }
-            else
+            //else
             {
                 cur.backX = parentX;
                 cur.backY = parentY;
@@ -131,7 +131,7 @@ namespace GraphSearch
                 cur.Weight = a + b;
                 for (int i = 0; i < open.Count; i++)
                 {
-                    if (open.ElementAt(i).Weight > cur.Weight)
+                    if (open.ElementAt(i).Weight >= cur.Weight)
                     {
                         open.Insert(i, cur);
                         return;
